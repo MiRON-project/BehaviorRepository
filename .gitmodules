@@ -1,0 +1,3 @@
+[submodule "MIRON-BehaviorRepository"]
+	path = MIRON-BehaviorRepository
+	url = git@github.com:MiRON-project/MIRON-BehaviorRepository.git
