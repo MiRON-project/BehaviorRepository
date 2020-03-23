@@ -1,32 +1,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; SCENARIO MEMORY
  
-; ABR - Adding a space on the KB for the skill - Initial name: NIL
- (tcl-kb-update 
-  :key '(is-a) 
-  :value '( 
-            (is-a skill)
-            (name NIL)
-            (id -1)
-            (in_1 NIL)
-            (in_2 NIL)
-            (in_3 NIL)
-            (out_1 NIL)
-            (out_2 NIL)
-            (out_3 NIL)))
-
-; ABR - Adding a space on the KB for the result of executing a skill - Initial name: NIL
- 
- (tcl-kb-update 
-  :key '(is-a) 
-  :value '( 
-            (is-a skill_result)
-            (name NIL)
-            (id -1)
-            (result NIL)))
- 
-; positions
-;(tcl-kb-update :key '(is-a) :value '((is-a skill)(name NIL)) )
 (tcl-kb-update 
   :key '(is-a name) 
   :value '( 
@@ -67,11 +41,9 @@
             (name table)
             (speech "table")
             (approach-type (region))
-            ;(approach-region-pose (2500 -2000 0))
-            (approach-region-pose (1500 -1000 0))
+            (approach-region-pose (2500 -2000 0))
             (approach-region-dist 150)
-            ;(approach-exact-pose (2500 -2000 0))
-            (approach-exact-pose (1500 -1000 0))
+            (approach-exact-pose (2500 -2000 0))
             (approach-exact-dist 100)
             (approach-exact-safetycl 0)
             (orientation-region (position 2500 -3000))
@@ -169,20 +141,7 @@
       (format t "  orientation              : ~s ~%" (get-value obj 'orientation))
       (format t "  station-distance         : ~s ~%" (get-value obj 'station-distance))
       (format t "  belt-count               : ~s ~%" (get-value obj 'belt-count)))))
-      
-(defun show-skills ()
-  (let ((obj-list     (tcl-kb-query-all :key '(is-a) :value '((is-a skill)))))
-    (dolist (obj obj-list)
-      (format t "~%--------------------------------~%")
-      (format t "SKILL ------------------~%")
-      (format t "name                       : ~s ~%" (get-value obj 'name))
-      (format t "  in_1	                    : ~s ~%" (get-value obj 'in_1))
-      (format t "  in_2            			: ~s ~%" (get-value obj 'in_2))
-      (format t "  in_3					    : ~s ~%" (get-value obj 'in_3))
-      (format t "  out_1				    : ~s ~%" (get-value obj 'out_1))
-      (format t "  out_2      				: ~s ~%" (get-value obj 'out_2))
-      (format t "  out_3      				: ~s ~%" (get-value obj 'out_3)))))
-      
+
 
 (defun show-robots ()
   (let ((robot-list (tcl-kb-query-all :key '(is-a) :value '((is-a robot)))))
